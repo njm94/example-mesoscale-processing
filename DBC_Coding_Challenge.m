@@ -9,10 +9,10 @@
 
 %% Load the data
 
-clc
-cd F:\CL\20190807173901\S1
-
-I = h5read('image_stream.hdf5','/raw_images');
+%clc
+%cd F:\CL\20190807173901\S1
+%
+%I = h5read('image_stream.hdf5','/raw_images');
 
 
 
@@ -23,9 +23,12 @@ I = h5read('image_stream.hdf5','/raw_images');
 % sinus or at the edges of the transcranial window. Draw an ROI that masks
 % both hemispheres of cortex but excludes these problematic areas. 
 
-X = squeeze(I(2,:,:,:));
-X = imrotate(X(:,:,1000:1499),270);
-X = imresize(X,0.25);
+%X = squeeze(I(2,:,:,:));
+%X = imrotate(X(:,:,1000:1499),270);
+%X = imresize(X,0.25);
+
+% load data.mat and begin from here
+
 roi = draw_roi(X,2);
 X = double(X).*roi;
 
